@@ -1,4 +1,4 @@
-public clas StaffHire {
+public class StaffHire {
     private int vacancyNumber;
     private String designation;
     private String jobType;
