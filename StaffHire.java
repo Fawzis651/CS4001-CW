@@ -14,7 +14,7 @@ public class StaffHire {
         this.designation = designation;
         this.jobType = jobType;
         this.staffName = staffName;
-        this.joiningDate = joiningDate;
+        this.joiningDate = joining Date;
         this.qualification = qualification;
         this.appointedBy = appointedBy;
         this.joined = joined;
