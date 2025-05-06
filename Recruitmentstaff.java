@@ -3,72 +3,84 @@ import java.util.Scanner;
 
 public class RecruitmentSystem {
     public static void main(String[] args) {
-        ArrayList<StaffHire> list = new ArrayList<>();
+        ArrayList<StaffHire> staffList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nMenu");
+            System.out.println("\nMenu:");
             System.out.println("1. Add Part-Time Staff");
-            System.out.println("2. Show Staff Info");
-            System.out.println("3. Terminate Staff");
+            System.out.println("2. Show All Staff Info");
+            System.out.println("3. Terminate a Staff Member");
             System.out.println("4. Exit");
-            System.out.print("Pick: ");
-            int pick = sc.nextInt();
-            sc.nextLine();
+            System.out.print("Choose an option: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // clear newline
 
-            if (pick == 1) {
+            if (choice == 1) {
                 System.out.print("Vacancy No: ");
-                int v = sc.nextInt();
+                int vacancyNo = sc.nextInt();
                 sc.nextLine();
                 System.out.print("Designation: ");
-                String d = sc.nextLine();
+                String designation = sc.nextLine();
                 System.out.print("Job Type: ");
-                String jt = sc.nextLine();
-                System.out.print("Name: ");
-                String n = sc.nextLine();
+                String jobType = sc.nextLine();
+                System.out.print("Staff Name: ");
+                String name = sc.nextLine();
                 System.out.print("Joining Date: ");
-                String jd = sc.nextLine();
+                String joiningDate = sc.nextLine();
                 System.out.print("Qualification: ");
-                String q = sc.nextLine();
+                String qualification = sc.nextLine();
                 System.out.print("Appointed By: ");
-                String a = sc.nextLine();
+                String appointedBy = sc.nextLine();
                 System.out.print("Working Hours: ");
-                int wh = sc.nextInt();
-                System.out.print("Wages Per Hour: ");
-                double wph = sc.nextDouble();
-                sc.nextLine();
+                int hours = sc.nextInt();
+                System.out.print("Wage Per Hour: ");
+                double wage = sc.nextDouble();
+                sc.nextLine(); // clear newline
                 System.out.print("Shift: ");
-                String s = sc.nextLine();
+                String shift = sc.nextLine();
 
-                PartTimeStaffHire p = new PartTimeStaffHire(v, d, jt, n, jd, q, a, true, wh, wph, s);
-                list.add(p);
-                System.out.println("Part-time staff added.");
+                PartTimeStaffHire newStaff = new PartTimeStaffHire(
+                    vacancyNo, designation, jobType, name,
+                    joiningDate, qualification, appointedBy,
+                    true, hours, wage, shift
+                );
 
-            } else if (pick == 2) {
-                for (StaffHire s : list) {
-                    s.showInfo();
-                    System.out.println("----------------");
+                staffList.add(newStaff);
+                System.out.println("Staff added successfully.");
+
+            } else if (choice == 2) {
+                if (staffList.isEmpty()) {
+                    System.out.println("No staff added yet.");
+                } else {
+                    for (int i = 0; i < staffList.size(); i++) {
+                        System.out.println("Staff #" + (i + 1));
+                        staffList.get(i).showInfo();
+                        System.out.println("-------------------------");
+                    }
                 }
 
-            } else if (pick == 3) {
-                System.out.print("Enter index to terminate: ");
-                int i = sc.nextInt();
-                if (i >= 0 && i < list.size()) {
-                    if (list.get(i) instanceof PartTimeStaffHire) {
-                        PartTimeStaffHire pt = (PartTimeStaffHire) list.get(i);
-                        pt.terminate();
+            } else if (choice == 3) {
+                System.out.print("Enter index to terminate (starting from 1): ");
+                int index = sc.nextInt();
+                int realIndex = index - 1;
+
+                if (realIndex >= 0 && realIndex < staffList.size()) {
+                    StaffHire staff = staffList.get(realIndex);
+                    if (staff instanceof PartTimeStaffHire) {
+                        ((PartTimeStaffHire) staff).terminate();
                     } else {
-                        System.out.println("Not a part-time staff.");
+                        System.out.println("Selected staff is not part-time.");
                     }
                 } else {
                     System.out.println("Invalid index.");
                 }
 
-            } else if (pick == 4) {
-                System.out.println("Goodbye!");
+            } else if (choice == 4) {
+                System.out.println("Exiting program. Goodbye!");
                 break;
             } else {
-                System.out.println("Invalid option.");
+                System.out.println("Invalid option. Try again.");
             }
         }
 
