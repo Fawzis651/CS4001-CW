@@ -14,8 +14,9 @@ public class RecruitmentSystem {
             System.out.println("4. Exit");
             System.out.print("Pick: ");
             int pick = sc.nextInt();
+            sc.nextLine();
 
-            if (pick == 11) {
+            if (pick == 1) {
                 System.out.print("Vacancy No: ");
                 int v = sc.nextInt();
                 sc.nextLine();
@@ -41,7 +42,7 @@ public class RecruitmentSystem {
 
                 PartTimeStaffHire p = new PartTimeStaffHire(v, d, jt, n, jd, q, a, true, wh, wph, s);
                 list.add(p);
-                System.out.println("Added!");
+                System.out.println("Part-time staff added.");
 
             } else if (pick == 2) {
                 for (StaffHire s : list) {
@@ -57,17 +58,17 @@ public class RecruitmentSystem {
                         PartTimeStaffHire pt = (PartTimeStaffHire) list.get(i);
                         pt.terminate();
                     } else {
-                        System.out.println("Not part-time staff.");
+                        System.out.println("Not a part-time staff.");
                     }
                 } else {
-                    System.out.println("Wrong index.");
+                    System.out.println("Invalid index.");
                 }
 
             } else if (pick == 4) {
-                System.out.println("Bye!");
+                System.out.println("Goodbye!");
                 break;
             } else {
-                System.out.println("Wrong option.");
+                System.out.println("Invalid option.");
             }
         }
 
