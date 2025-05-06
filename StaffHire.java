@@ -8,8 +8,10 @@ public class StaffHire {
     private String appointedBy;
     private boolean joined;
 
-    public StaffHire(int vacancyNumber, String designation, String jobType, String staffName,
-                     String joiningDate, String qualification, String appointedBy, boolean joined) {
+    // Constructor
+    public StaffHire(int vacancyNumber, String designation, String jobType,
+                     String staffName, String joiningDate, String qualification,
+                     String appointedBy, boolean joined) {
         this.vacancyNumber = vacancyNumber;
         this.designation = designation;
         this.jobType = jobType;
@@ -20,21 +22,61 @@ public class StaffHire {
         this.joined = joined;
     }
 
-    public int getVacancyNumber() { return vacancyNumber; }
-    public String getDesignation() { return designation; }
-    public String getJobType() { return jobType; }
-    public String getStaffName() { return staffName; }
-    public String getJoiningDate() { return joiningDate; }
-    public String getQualification() { return qualification; }
-    public String getAppointedBy() { return appointedBy; }
-    public boolean getJoined() { return joined; }
+    // Getters
+    public int getVacancyNumber() {
+        return vacancyNumber;
+    }
 
-    public void setStaffName(String name) { staffName = name; }
-    public void setJoiningDate(String date) { joiningDate = date; }
-    public void setQualification(String q) { qualification = q; }
-    public void setAppointedBy(String a) { appointedBy = a; }
-    public void setJoined(boolean j) { joined = j; }
+    public String getDesignation() {
+        return designation;
+    }
 
+    public String getJobType() {
+        return jobType;
+    }
+
+    public String getStaffName() {
+        return staffName;
+    }
+
+    public String getJoiningDate() {
+        return joiningDate;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public String getAppointedBy() {
+        return appointedBy;
+    }
+
+    public boolean getJoined() {
+        return joined;
+    }
+
+    // Setters
+    public void setStaffName(String name) {
+        staffName = name;
+    }
+
+    public void setJoiningDate(String date) {
+        joiningDate = date;
+    }
+
+    public void setQualification(String q) {
+        qualification = q;
+    }
+
+    public void setAppointedBy(String a) {
+        appointedBy = a;
+    }
+
+    public void setJoined(boolean j) {
+        joined = j;
+    }
+
+    // Method to show details
     public void showInfo() {
         System.out.println("Vacancy Number: " + vacancyNumber);
         System.out.println("Designation: " + designation);
@@ -44,5 +86,18 @@ public class StaffHire {
         System.out.println("Qualification: " + qualification);
         System.out.println("Appointed By: " + appointedBy);
         System.out.println("Joined: " + joined);
+    }
+
+    // Optional: useful for printing in GUI or logs
+    @Override
+    public String toString() {
+        return "Vacancy Number: " + vacancyNumber + "\n" +
+               "Designation: " + designation + "\n" +
+               "Job Type: " + jobType + "\n" +
+               "Staff Name: " + staffName + "\n" +
+               "Joining Date: " + joiningDate + "\n" +
+               "Qualification: " + qualification + "\n" +
+               "Appointed By: " + appointedBy + "\n" +
+               "Joined: " + joined;
     }
 }
