@@ -14,21 +14,10 @@ public class PartTimeStaffHire extends StaffHire {
         this.terminated = false;
     }
 
-    public int getWorkingHour() {
-        return workingHour;
-    }
-
-    public double getWagesPerHour() {
-        return wagesPerHour;
-    }
-
-    public String getShifts() {
-        return shifts;
-    }
-
-    public boolean isTerminated() {
-        return terminated;
-    }
+    public int getWorkingHour() { return workingHour; }
+    public double getWagesPerHour() { return wagesPerHour; }
+    public String getShifts() { return shifts; }
+    public boolean isTerminated() { return terminated; }
 
     public void changeShift(String newShift) {
         if (getJoined()) {
@@ -56,11 +45,10 @@ public class PartTimeStaffHire extends StaffHire {
         super.showInfo();
         if (!terminated) {
             System.out.println("Working Hour: " + workingHour);
-            System.out.println("WagesPer Hour: " + wagesPerHour);
+            System.out.println("Wages Per Hour: " + wagesPerHour);
             System.out.println("Shift: " + shifts);
             System.out.println("Terminated: " + terminated);
-            double income = wagesPerHour * workingHour;
-            System.out.println("Daily Income: " + income);
+            System.out.println("Daily Income: " + (wagesPerHour * workingHour));
         }
     }
 }
