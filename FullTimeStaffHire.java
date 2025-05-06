@@ -6,20 +6,20 @@ public class FullTimeStaffHire extends StaffHire {
                              String sName, String dateJoined, String qualify,
                              String byWho, boolean hasJoined, double sal, int hours) {
         super(vacancynum, desig, jobtype, sName, dateJoined, qualify, byWho, hasJoined);
-        salary = salary;
-        workingHours = hours;
+        this.salary = sal;
+        this.workingHours = hours;
     }
 
-    public double getSalry() {
+    public double getSalary() {
         return salary;
     }
 
-    public int getworkingHours() {
+    public int getWorkingHours() {
         return workingHours;
     }
 
     public void changeSalary(double newSal) {
-        if (joined = true) {
+        if (getJoined()) {
             salary = newSal;
             System.out.println("Salary updated.");
         } else {
@@ -36,9 +36,9 @@ public class FullTimeStaffHire extends StaffHire {
         super.showInfo();
         if (getJoined()) {
             System.out.println("Salary: " + salary);
-            System.out.println("Working hours in week: " + workingHours);
+            System.out.println("Weekly Working Hours: " + workingHours);
         } else {
-            System.out.println("Staff not joined yet");
+            System.out.println("Staff not joined yet.");
         }
     }
 }
